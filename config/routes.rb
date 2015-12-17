@@ -53,4 +53,11 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  namespace :api, as: nil, defaults: { format: 'json' } do
+    namespace :v1, as: nil do
+      resources :partner
+      resources :item, only: [:index, :show]
+    end
+  end
 end
