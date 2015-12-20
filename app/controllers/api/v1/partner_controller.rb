@@ -30,11 +30,18 @@ class Api::V1::PartnerController < ApplicationController
 
   def update
     @partner = Partner.find params[:id]
+
+    begin
+      task = "#{@partner.xml_type}Worker".constantize
+    rescue NameError
+      return render :status => 422, :json => [errors: "Type #{@partner.xml_type} not found."]
+    end
+
     unless @partner.update_attributes partner_params
       return render :status => 422, :json => [errors: @partner.errors.full_messages]
     end
 
-    # TODO Process xml_url
+    task.perform_async(@partner.xml_url, @partner.id)
 
     render :json => @partner
   end
