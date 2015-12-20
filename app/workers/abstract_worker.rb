@@ -9,7 +9,7 @@ class AbstractWorker
       if old_item
         old_item.update_attributes item_params
       else
-        item_params[:id] = SecureRandom.hex 10
+        item_params[:id] = SecureRandom.hex 6
         item_params[:partner_id] = partner_id
         Item.create item_params
       end

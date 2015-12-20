@@ -63,4 +63,8 @@ Rails.application.routes.draw do
   end
 
   root 'partner#index'
+  get 'index' => 'partner#index'
+  get 'show/:id' => 'partner#show'
+  get 'new' => 'partner#new'
+  get 'update/:id' => 'partner#update'
 end

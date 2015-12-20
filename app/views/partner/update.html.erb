@@ -1,0 +1,27 @@
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="http://malsup.github.com/jquery.form.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+  $('.edit_partner').ajaxForm({
+    success: function() {
+      window.location.replace("/");
+    },
+    error: function(response) {
+      $('#error').text($.parseJSON(response.responseText)[0].errors);
+    }
+  });
+});
+
+</script>
+
+<h1>Edit partner</h1>
+
+<h5 id="error" style="color:red;"></h5>
+
+<%= form_for @partner, url: {controller: 'api/v1/partner', action: 'update', id: @partner.id} do |f| %>
+  <p>XML Type: <%= f.text_field :xml_type %></p>
+  <p>XML URL: <%= f.text_field :xml_url %></p>
+  <p><%= f.submit "Update" %></p>
+<% end %>

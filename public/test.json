@@ -1,0 +1,30 @@
+{
+  "items" :
+  [
+    {
+      "id" : "123",
+      "title" : "Рубашка",
+      "available" : true
+    },
+    {
+      "id" : "1234",
+      "title" : "Штаны",
+      "available" : false
+    },
+    {
+      "id" : "12345",
+      "title" : "IPhone",
+      "available" : true
+    },
+    {
+      "id" : "123456",
+      "title" : "MacBook",
+      "available" : true
+    },
+    {
+      "id" : "1234567",
+      "title" : "Шапка",
+      "available" : false
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="http://malsup.github.com/jquery.form.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+    $('#new_partner').ajaxForm(function() {
+        window.location.replace("/");
+    });
+});
+
+</script>
+
+<h1>New partner</h1>
+
+<%= form_for @partner, url: {controller: 'api/v1/partner', action: 'create'} do |f| %>
+  <p>XML Type: <%= f.text_field :xml_type %></p>
+  <p>XML URL: <%= f.text_field :xml_url %></p>
+  <p><%= f.submit "Create" %></p>
+<% end %>

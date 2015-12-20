@@ -1,0 +1,47 @@
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="http://malsup.github.com/jquery.form.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+  $('#remove_link').click(function(event) {
+    event.preventDefault();
+    $.ajax({
+			type : 'DELETE',
+      url : $('#remove_link').attr('href'),
+      dataType : 'json',
+      success : function(result) {
+        window.location.reload();
+      }
+		});
+  });
+});
+
+</script>
+
+<h1>Partners</h1>
+
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>XML Type</th>
+    <th>XML URL</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @partners.each do |partner| %>
+  <tr>
+    <td><%= partner.id %></td>
+    <td><%= partner.xml_type %></td>
+    <td><%= partner.xml_url %></td>
+    <td><%= link_to "Show", controller: 'partner', action: 'show', id: partner.id %></td>
+    <td><%= link_to "Edit", controller: 'partner', action: 'update', id: partner.id %></td>
+    <td><%= link_to "Remove", { controller: 'api/v1/partner', action: 'destroy', id: partner.id }, id: 'remove_link' %></td>
+  </tr>
+<% end %>
+</table>
+
+<br>
+<%= link_to "New partner", controller: 'partner', action: 'new' %>

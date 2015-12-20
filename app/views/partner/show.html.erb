@@ -1,0 +1,23 @@
+<h1>Partner <%= @partner.id %></h1>
+
+<h4>XML Type: <%= @partner.xml_type %></h4>
+<h4>XML URL: <%= @partner.xml_url %></h4>
+
+<h4>Items</h4>
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Partner item id</th>
+    <th>Available in store</th>
+  </tr>
+
+<% @partner.items.each do |item| %>
+  <tr>
+    <td><%= item.id %></td>
+    <td><%= item.title %></td>
+    <td><%= item.partner_item_id %></td>
+    <td><%= item.available_in_store %></td>
+  </tr>
+<% end %>
+</table>

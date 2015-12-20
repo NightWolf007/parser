@@ -5,11 +5,11 @@
   <item available="false" id="1234">
     <title>Штаны</title>
   </item>
-  <item available="true" id="12345">
-    <title>IPhone</title>
+  <item available="false" id="12345">
+    <title>IPhone 6s</title>
   </item>
   <item available="true" id="123456">
-    <title>MacBook</title>
+    <title>MacBook Pro</title>
   </item>
   <item available="false" id="1234567">
     <title>Шапка</title>

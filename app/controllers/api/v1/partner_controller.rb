@@ -32,9 +32,9 @@ class Api::V1::PartnerController < ApplicationController
     @partner = Partner.find params[:id]
 
     begin
-      task = "#{@partner.xml_type}Worker".constantize
+      task = "#{partner_params[:xml_type]}Worker".constantize
     rescue NameError
-      return render :status => 422, :json => [errors: "Type #{@partner.xml_type} not found."]
+      return render :status => 422, :json => [errors: "Type #{partner_params[:xml_type]} not found."]
     end
 
     unless @partner.update_attributes partner_params
@@ -53,6 +53,6 @@ class Api::V1::PartnerController < ApplicationController
   end
 
   def partner_params
-    params.permit(:xml_url, :xml_type)
+    params.require(:partner).permit(:xml_url, :xml_type)
   end
 end
