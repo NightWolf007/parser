@@ -1,5 +1,5 @@
 # Parser
-Test project xml parser.
+Test project items parser.
 
 You must have installed and runned PostgreSQL and Redis servers.
 Redis server needed for gem sidekiq.
