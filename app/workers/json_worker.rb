@@ -5,7 +5,7 @@ class JsonWorker < AbstractWorker
   end
 
   def items(doc)
-    doc['items'].each do |item|
+    doc['items'].map do |item|
       {
         title: item['title'],
         partner_item_id: item['id'],

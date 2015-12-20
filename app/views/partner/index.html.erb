@@ -4,16 +4,16 @@
 <script type="text/javascript">
 
 $(document).ready(function() {
-  $('#remove_link').click(function(event) {
+  $('.remove_link').click(function(event) {
     event.preventDefault();
     $.ajax({
 			type : 'DELETE',
-      url : $('#remove_link').attr('href'),
+      url : event.currentTarget.href,
       dataType : 'json',
       success : function(result) {
         window.location.reload();
       }
-		});
+    });
   });
 });
 
@@ -38,7 +38,7 @@ $(document).ready(function() {
     <td><%= partner.xml_url %></td>
     <td><%= link_to "Show", controller: 'partner', action: 'show', id: partner.id %></td>
     <td><%= link_to "Edit", controller: 'partner', action: 'update', id: partner.id %></td>
-    <td><%= link_to "Remove", { controller: 'api/v1/partner', action: 'destroy', id: partner.id }, id: 'remove_link' %></td>
+    <td><%= link_to "Remove", { controller: 'api/v1/partner', action: 'destroy', id: partner.id }, class: 'remove_link' %></td>
   </tr>
 <% end %>
 </table>
