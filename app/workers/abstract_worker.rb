@@ -16,9 +16,14 @@ class AbstractWorker
     end
   end
 
+  # must return parsed document
   def document(io)
   end
 
+  # must return array of hashs with fields:
+  # title
+  # partner_item_id
+  # available_in_store
   def items(doc)
   end
 end
